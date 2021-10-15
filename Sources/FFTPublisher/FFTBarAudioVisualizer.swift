@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// A component to visualize (horizontally) magnitude output from an FFTPublisher.
 public struct FFTBarAudioVisualizer: View {
     @Environment(\.displayScale) var displayScale: CGFloat
     @ObservedObject public var fft: FFTPublisher
@@ -37,7 +38,7 @@ public struct FFTBarAudioVisualizer: View {
                     EmptyView()
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: frameAlignment)
-        }.onReceive(fft.magnitudes) { scales in
+        }.onReceive(fft.magnitudes.receive(on: DispatchQueue.main)) { scales in
             withAnimation(Animation.easeOut(duration: 0.1)) {
                 self.scales = scales
             }
@@ -45,6 +46,7 @@ public struct FFTBarAudioVisualizer: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
     }
 }
+/// A component to visualize (vertically) magnitude output from an FFTPublisher
 public struct FFTVerticalBarAudioVisualizer: View {
     @Environment(\.displayScale) var displayScale: CGFloat
     @ObservedObject public var fft: FFTPublisher
@@ -82,7 +84,7 @@ public struct FFTVerticalBarAudioVisualizer: View {
                     EmptyView()
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: frameAlignment)
-        }.onReceive(fft.magnitudes) { scales in
+        }.onReceive(fft.magnitudes.receive(on: DispatchQueue.main)) { scales in
             withAnimation(Animation.easeOut(duration: 0.1)) {
                 self.scales = scales
             }
