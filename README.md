@@ -1,6 +1,6 @@
 # FFTPublisher
 
-A fast fourtier transform publisher used creating visual representations of audio.
+A fast fourtier transform publisher used for creating a visual representations of audio.
 
 ## FFTPublisher Usage
 
