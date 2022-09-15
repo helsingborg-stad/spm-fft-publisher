@@ -1,5 +1,8 @@
 # FFTPublisher
+## DEPRECATED
+Package will not recieve any updates, please use the FFTPublisher library in https://github.com/helsingborg-stad/spm-daisy instead.
 
+## About
 A fast fourtier transform publisher used for creating a visual representations of audio.
 
 ## FFTPublisher Usage
